@@ -92,16 +92,6 @@ mysqli_stmt_close($stmt);
                 <input type="date" class="form-control" id="deadline" name="deadline" required>
               </div>
 
-              <div class="mb-3">
-                <label for="priority" class="form-label">Priority</label>
-                <select class="form-select" id="priority" name="priority" required>
-                  <option value="">-- Pilih Priority --</option>
-                  <option value="low">Low</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
-                </select>
-              </div>
-
               <div class="modal-footer px-0">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save</button>
@@ -117,6 +107,12 @@ mysqli_stmt_close($stmt);
 
         <!-- Foreach -->
         <?php foreach ($todos as $item): ?>
+          <?php
+          $skipTitles = ['P', 'PP', 'Test'];
+          if (in_array($item['title'], $skipTitles)):
+            continue;
+          endif;
+          ?>
 
           <?php if ($item['status'] == 'pending'): ?>
             <div class="col w-auto">
@@ -133,21 +129,6 @@ mysqli_stmt_close($stmt);
                       Done
                     </span>
                   <?php endif ?>
-
-                  <!-- Priority -->
-                  <?php if ($item['priority'] == 'low'): ?>
-                    <span class="badge bg-success mb-2">
-                      Low
-                    </span>
-                  <?php elseif ($item['priority'] == 'medium'): ?>
-                    <span class="badge bg-warning text-dark mb-2">
-                      Medium
-                    </span>
-                  <?php else: ?>
-                    <span class="badge bg-danger mb-2">
-                      High
-                    </span>
-                  <?php endif; ?>
 
                   <!-- title -->
                   <h1 class="card-title h3">
@@ -167,22 +148,13 @@ mysqli_stmt_close($stmt);
                   </div>
                 </div>
                 <div class="card-footer d-flex justify-content-between gap-2">
-                  <button
-                    class="btn btn-secondary btn-detail"
-                    data-bs-toggle="modal"
-                    data-bs-target="#detailTodoModal"
-                    data-title="Testing judul"
-                    data-description="Deskripsi todolist ada disini nantinya"
-                    data-deadline="15 Apr 2027"
-                    data-priority="Low"
-                    data-status="Done">
+                  <button class="btn btn-secondary btn-detail" data-bs-toggle="modal" data-bs-target="#detailTodoModal"
+                    data-title="Testing judul" data-description="Deskripsi todolist ada disini nantinya"
+                    data-deadline="15 Apr 2027" data-priority="Low" data-status="Done">
                     Detail
                   </button>
                   <button class="btn btn-success">
                     Done
-                  </button>
-                  <button class="btn btn-danger delete-btn">
-                    Delete
                   </button>
                 </div>
               </div>
