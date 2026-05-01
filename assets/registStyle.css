@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+body {
+  height: 100%;
+  margin: 0;
+}
+main {
+  height: 100%;
+}
+p,
+input,
+label {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  border: solid red;
+  display: block;
+  height: 100%;
+}
+
+.border {
+  border: black solid;
+}
+
+.form-section1 {
+  display: flex;
+  height: auto;
+  flex: 1;
+  background-color: #868e96;
+  padding: 50px;
+  flex-direction: column;
+  color: whitesmoke;
+}
+.form-section1 .title {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+.form-section1 .subtitle {
+  font-family: "Poppins", sans-serif;
+}
+.form-section1 .form {
+  padding: 5vh;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.form-section1 input {
+  width: 100%;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+.form-section1 form {
+  margin: auto;
+  padding: 30px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.form-btn {
+  display: flex;
+  justify-content: center;
+}
+.form-btn input {
+  border-radius: 5px;
+  width: 70px;
+  height: 30px;
+  cursor: pointer;
+}
+.form-btn input:hover {
+  background-color: #dbdbdb;
+}
+
+.form-section2 {
+  flex: 1;
+  padding: 30px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-section2 p {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-weight: 700;
+  color: rgb(52, 52, 52);
+}
+
+.logo img {
+  width: 50vh;
+  height: auto;
+}
+
+.form a {
+  text-decoration: none;
+}
+
+/* SM */
+@media screen and (width >= 40rem) {
+  .container {
+    display: flex;
+  }
+  .form-section2 {
+    display: flex;
+  }
+}
